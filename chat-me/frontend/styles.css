@@ -1,0 +1,287 @@
+/* Global Styles */
+body {
+    background-color: #EDEDED; /* WhatsApp light gray background */
+    color: #111; /* Default text color */
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Chat Container */
+.chat-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Sidebar */
+.sidebar {
+    width: 20%;
+    background-color: #FFFFFF; /* White background for sidebar */
+    color: #111; /* Dark text for contrast */
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ECECEC;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ECECEC;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #DCF8C6; /* WhatsApp green tint */
+    margin-right: 15px;
+}
+
+.nav-section {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom: 1px solid #ECECEC;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: #111;
+    text-align: left;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.nav-button.active, .nav-button:hover {
+    background-color: #DCF8C6; /* WhatsApp green tint for hover and active states */
+}
+
+.chat-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.chat {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #ECECEC;
+    cursor: pointer;
+}
+
+.chat:hover {
+    background-color: #F6F6F6; /* Slight gray tint on hover */
+}
+
+.chat-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2f4220;
+    margin-right: 10px;
+}
+
+.chat-info h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.chat-info p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #777; /* Subtle gray for message text */
+}
+
+/* Chat Window */
+.chat-window {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ECECEC; /* WhatsApp light gray */
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    background-color: #075E54; /* WhatsApp dark green */
+    padding: 10px;
+    color: #fff; /* White text for header */
+}
+
+.chat-header-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #DCF8C6;
+    margin-right: 15px;
+}
+
+.chat-body {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #EDEDED;
+}
+
+.message {
+    max-width: 60%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.message p {
+    margin: 0;
+}
+
+.message .time {
+    font-size: 12px;
+    color: #777;
+    position: absolute;
+    bottom: -15px;
+    right: 10px;
+}
+
+.message.received {
+    background-color: #FFFFFF; /* White for received messages */
+    align-self: flex-start;
+}
+
+.message.sent {
+    background-color: #DCF8C6; /* WhatsApp green tint for sent messages */
+    align-self: flex-end;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border-top: 1px solid #ECECEC;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #DDD;
+    border-radius: 20px;
+    background-color: #F7F7F7; /* Slight gray tint for input field */
+}
+
+.chat-input input:focus {
+    outline: none;
+    border-color: #075E54; /* WhatsApp dark green on focus */
+}
+
+.chat-input button {
+    background-color: #075E54; /* WhatsApp dark green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #056D6A; /* Slightly lighter green */
+}
+
+/* Right Sidebar */
+.right-sidebar {
+    width: 20%;
+    background-color: #FFFFFF; /* White background for right sidebar */
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ECECEC;
+}
+
+.top-icons {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    border-bottom: 1px solid #ECECEC;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    background-color: #DCF8C6; /* WhatsApp green tint */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    background-color: #075E54; /* WhatsApp dark green */
+}
+
+.search-section {
+    padding: 15px;
+    border-bottom: 1px solid #ECECEC;
+}
+
+.search-section input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #DDD;
+    border-radius: 20px;
+    background-color: #F7F7F7; /* Slight gray tint for input field */
+    outline: none;
+}
+
+.additional-section {
+    flex-grow: 1;
+    padding: 15px;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #111; /* Dark mode background */
+    color: #FFF; /* Light text */
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .right-sidebar,
+body.dark-mode .chat-window {
+    background-color: #1C1C1C;
+    color: #FFF;
+}
+
+body.dark-mode .nav-button {
+    color: #FFF;
+}
+
+body.dark-mode .nav-button.active,
+body.dark-mode .nav-button:hover {
+    background-color: #333; /* Subtle hover for dark mode */
+}
+
+body.dark-mode .message.received {
+    background-color: #333;
+}
+
+body.dark-mode .message.sent {
+    background-color: #056D6A; /* Green for dark mode */
+}
+
+body.dark-mode .chat-input input {
+    background-color: #333;
+    color: #FFF;
+}
+
+body.dark-mode .chat-input button {
+    background-color: #056D6A;
+}
+
+body.dark-mode .chat-input button:hover {
+    background-color: #075E54;
+}

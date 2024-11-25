@@ -1,0 +1,28 @@
+{
+    "chats": [
+        {
+            "id": 1,
+            "name": "Aditi",
+            "messages": [
+                { "sender": "Aditi", "content": "Hey! What's up?", "time": "10:30 AM" },
+                { "sender": "Me", "content": "Not much, you?", "time": "10:32 AM" }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Shraddha",
+            "messages": [
+                { "sender": "Shraddha", "content": "See you tomorrow!", "time": "2:45 PM" },
+                { "sender": "Me", "content": "Sure, see you!", "time": "2:47 PM" }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Riya",
+            "messages": [
+                { "sender": "Riya", "content": "Where are you?", "time": "5:10 PM" },
+                { "sender": "Me", "content": "On my way!", "time": "5:12 PM" }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat-Me</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="right.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH4PvQzC4JZzlT3e0e2B6l6F0z+/3D2AeDj77YJdRDU1BLi9V2C8j0mJp0hDJ+1G2cF35iFQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="profile-pic">
+                    <img src="/frontend/Assets/Images/logo.png" alt="Chat-Me logo">
+                </div>
+                <h2>Chat-Me</h2>
+                <button id="theme-toggle" class="theme-toggle-button">🌙</button>
+            </div>
+            <div class="nav-section">
+                <button class="nav-button active">
+                    <i class="fas fa-comments"></i> Chats
+                </button>
+                <button class="nav-button">
+                    <i class="fas fa-book-open"></i> Stories
+                </button>
+                <button class="nav-button">
+                    <i class="fas fa-phone-alt"></i> Calls
+                </button>
+                <button class="nav-button">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+            </div>
+            <div class="chat-list" id="chat-list">
+                <div class="chat" data-name="Aditi">
+                    <div class="chat-pic">
+                        <img src="/frontend/Assets/Images/female-default.png" alt="Default profile picture for Aditi">
+                    </div>
+                    <div class="chat-info">
+                        <h3>Aditi</h3>
+                        <p>Hey! What's up?</p>
+                    </div>
+                </div>
+                <div class="chat" data-name="Shraddha">
+                    <div class="chat-pic">
+                        <img src="/frontend/Assets/Images/female-default.png" alt="Default profile picture for Shraddha">
+                    </div>
+                    <div class="chat-info">
+                        <h3>Shraddha</h3>
+                        <p>See you tomorrow!</p>
+                    </div>
+                </div>
+                <div class="chat" data-name="Riya">
+                    <div class="chat-pic">
+                        <img src="/frontend/Assets/Images/female-default.png" alt="Default profile picture for Riya">
+                    </div>
+                    <div class="chat-info">
+                        <h3>Riya</h3>
+                        <p>Where are you?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Window -->
+        <div class="chat-window">
+            <div class="chat-header">
+                <div class="chat-header-pic">
+                    <img src="/frontend/Assets/Images/female-default.png" alt="Default profile picture" id="chat-header-pic">
+                </div>
+                <div class="chat-header-info">
+                    <h3 id="chat-header-name">Mahi</h3>
+                    <p><i class="fas fa-circle text-online"></i> Online</p>
+                </div>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <div class="message received">
+                    <p>Hello there!</p>
+                    <span class="time">10:30 AM</span>
+                </div>
+                <div class="message sent">
+                    <p>Hi! How are you?</p>
+                    <span class="time">10:32 AM</span>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Type a message..." />
+                <button id="send-button">
+                    <i class="fas fa-paper-plane"></i> Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Handle theme toggle
+        const themeToggleButton = document.getElementById("theme-toggle");
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            document.body.classList.add(savedTheme);
+            themeToggleButton.textContent = savedTheme === "dark-mode" ? "☀️" : "🌙";
+        }
+        themeToggleButton.addEventListener("click", () => {
+            const isDarkMode = document.body.classList.toggle("dark-mode");
+            themeToggleButton.textContent = isDarkMode ? "☀️" : "🌙";
+            localStorage.setItem("theme", isDarkMode ? "dark-mode" : "light-mode");
+        });
+
+        // Handle chat selection
+        const chats = document.querySelectorAll(".chat");
+        const chatHeaderName = document.getElementById("chat-header-name");
+        const chatHeaderPic = document.getElementById("chat-header-pic");
+        const chatBody = document.getElementById("chat-body");
+        chats.forEach(chat => {
+            chat.addEventListener("click", () => {
+                const name = chat.dataset.name;
+                const imgSrc = chat.querySelector(".chat-pic img").src;
+                chatHeaderName.textContent = name;
+                chatHeaderPic.src = imgSrc;
+                chatBody.innerHTML = ''; // Clear previous chat messages
+            });
+        });
+
+        // Handle sending messages
+        const messageInput = document.getElementById("message-input");
+        const sendButton = document.getElementById("send-button");
+        const addMessage = (text, type) => {
+            const message = document.createElement("div");
+            message.classList.add("message", type);
+            message.innerHTML = `<p>${text}</p><span class="time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>`;
+            chatBody.appendChild(message);
+            chatBody.scrollTop = chatBody.scrollHeight; // Scroll to the bottom
+        };
+        sendButton.addEventListener("click", () => {
+            const text = messageInput.value.trim();
+            if (text) {
+                addMessage(text, "sent");
+                messageInput.value = '';
+            }
+        });
+        messageInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                sendButton.click();
+            }
+        });
+    </script>
+</body>
+</html>
