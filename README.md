@@ -45,3 +45,5 @@ cd chat-me
 
 
 
+![Screenshot 2024-11-25 220900](https://github.com/user-attachments/assets/f33e0f1a-475c-4c37-8327-3db1389aba4a)
+![Screenshot 2024-11-25 220900](https://github.com/user-attachments/assets/2e8b988c-5145-4b60-a07e-b0b203935005)
