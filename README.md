@@ -38,3 +38,5 @@ Follow these steps to set up the Chat-Me project locally:
 ```bash
 git clone https://github.com/your-1906shra/chat-me.git
 cd chat-me
+![Screenshot 2024-11-25 220900](https://github.com/user-attachments/assets/fbdc7ba9-526f-4ad3-a618-c6faea42021f)
+
