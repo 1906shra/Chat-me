@@ -36,5 +36,5 @@ Follow these steps to set up the Chat-Me project locally:
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/your-username/chat-me.git
+git clone https://github.com/your-1906shra/chat-me.git
 cd chat-me
